@@ -1,5 +1,11 @@
 ---
+import { getAllItems } from "../api/api";
+import ItemCard from "../components/ItemCard.astro";
 import Layout from "../layouts/Layout.astro";
+
+const items = getAllItems();
 ---
 
-<Layout>browse</Layout>
+<Layout>
+	{items.map((item) => <ItemCard item={item} />)}
+</Layout>

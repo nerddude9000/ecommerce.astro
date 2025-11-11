@@ -12,7 +12,7 @@ const data: Item[] = [
 		price: 1299.99,
 		stock: 8,
 		category: "parts",
-		imgs: "",
+		img: "",
 	},
 	{
 		id: 2,
@@ -21,7 +21,7 @@ const data: Item[] = [
 		price: 699.99,
 		stock: 15,
 		category: "parts",
-		imgs: "",
+		img: "",
 	},
 	{
 		id: 3,
@@ -30,7 +30,7 @@ const data: Item[] = [
 		price: 189.99,
 		stock: 25,
 		category: "parts",
-		imgs: "",
+		img: "",
 	},
 	{
 		id: 4,
@@ -39,7 +39,7 @@ const data: Item[] = [
 		price: 239.99,
 		stock: 30,
 		category: "parts",
-		imgs: "",
+		img: "",
 	},
 	{
 		id: 5,
@@ -48,7 +48,7 @@ const data: Item[] = [
 		price: 149.99,
 		stock: 12,
 		category: "cases",
-		imgs: "",
+		img: "",
 	},
 	{
 		id: 6,
@@ -57,7 +57,7 @@ const data: Item[] = [
 		price: 179.99,
 		stock: 10,
 		category: "cases",
-		imgs: "",
+		img: "",
 	},
 	{
 		id: 7,
@@ -66,7 +66,7 @@ const data: Item[] = [
 		price: 129.99,
 		stock: 40,
 		category: "peripherals",
-		imgs: "",
+		img: "",
 	},
 	{
 		id: 8,
@@ -75,7 +75,7 @@ const data: Item[] = [
 		price: 79.99,
 		stock: 60,
 		category: "peripherals",
-		imgs: "",
+		img: "",
 	},
 	{
 		id: 9,
@@ -84,7 +84,7 @@ const data: Item[] = [
 		price: 179.99,
 		stock: 20,
 		category: "peripherals",
-		imgs: "",
+		img: "",
 	},
 	{
 		id: 10,
@@ -93,7 +93,7 @@ const data: Item[] = [
 		price: 29.99,
 		stock: 80,
 		category: "accessories",
-		imgs: "",
+		img: "",
 	},
 	{
 		id: 11,
@@ -102,7 +102,7 @@ const data: Item[] = [
 		price: 149.99,
 		stock: 18,
 		category: "accessories",
-		imgs: "",
+		img: "",
 	},
 	{
 		id: 12,
@@ -111,7 +111,7 @@ const data: Item[] = [
 		price: 69.99,
 		stock: 25,
 		category: "accessories",
-		imgs: "",
+		img: "",
 	},
 	{
 		id: 13,
@@ -120,7 +120,7 @@ const data: Item[] = [
 		price: 579.99,
 		stock: 9,
 		category: "chairs",
-		imgs: "",
+		img: "",
 	},
 	{
 		id: 14,
@@ -129,7 +129,7 @@ const data: Item[] = [
 		price: 1595.0,
 		stock: 5,
 		category: "chairs",
-		imgs: "",
+		img: "",
 	},
 	{
 		id: 15,
@@ -138,7 +138,7 @@ const data: Item[] = [
 		price: 499.99,
 		stock: 14,
 		category: "desks",
-		imgs: "",
+		img: "",
 	},
 	{
 		id: 16,
@@ -147,7 +147,7 @@ const data: Item[] = [
 		price: 449.99,
 		stock: 20,
 		category: "desks",
-		imgs: "",
+		img: "",
 	},
 	{
 		id: 17,
@@ -156,7 +156,7 @@ const data: Item[] = [
 		price: 49.99,
 		stock: 35,
 		category: "parts",
-		imgs: "",
+		img: "",
 	},
 	{
 		id: 18,
@@ -165,7 +165,7 @@ const data: Item[] = [
 		price: 249.99,
 		stock: 10,
 		category: "parts",
-		imgs: "",
+		img: "",
 	},
 	{
 		id: 19,
@@ -174,7 +174,7 @@ const data: Item[] = [
 		price: 99.99,
 		stock: 40,
 		category: "peripherals",
-		imgs: "",
+		img: "",
 	},
 	{
 		id: 20,
@@ -183,7 +183,7 @@ const data: Item[] = [
 		price: 89.99,
 		stock: 50,
 		category: "accessories",
-		imgs: "",
+		img: "",
 	},
 ];
 

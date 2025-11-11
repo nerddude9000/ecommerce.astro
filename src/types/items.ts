@@ -13,7 +13,7 @@ type Item = {
 	price: number;
 	stock: number;
 	category: Category;
-	imgs: string | string[];
+	img: string;
 };
 
 export type { Item, Category };
