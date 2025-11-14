@@ -7,5 +7,9 @@ const items = getAllItems();
 ---
 
 <Layout>
-	{items.map((item) => <ItemCard item={item} />)}
+	<section class="flex flex-col w-screen items-center my-8">
+		<section class="grid grid-flow-row auto-cols-fr gap-8">
+			{items.map((item) => <ItemCard item={item} />)}
+		</section>
+	</section>
 </Layout>
