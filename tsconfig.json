@@ -9,7 +9,7 @@
   ],
   "compilerOptions": {
     "strict": true,
-    "jsx": "react-jsx",
-    "jsxImportSource": "react"
+    "jsxImportSource": "preact",
+    "jsx": "react-jsx"
   }
 }

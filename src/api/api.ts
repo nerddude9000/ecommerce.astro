@@ -2,9 +2,9 @@
 // * I might make a separate backend for this in the future,
 // * but for now i'll just use this fake data.
 
-import type { Category, Item } from "../types/items";
+import type { Category, Filters, Article } from "../types/items";
 
-const data: Item[] = [
+const data: Article[] = [
 	{
 		id: 1,
 		name: "RTX 4080 Super GPU",
@@ -187,11 +187,11 @@ const data: Item[] = [
 	},
 ];
 
-function getItems(category: Category): Item[] {
-	return data.filter((item) => item.category == category);
+function getItems({ category }: Filters): Article[] {
+	return data.filter((item) => !category || item.category == category);
 }
 
-function getAllItems(): Item[] {
+function getAllItems(): Article[] {
 	return data;
 }
 

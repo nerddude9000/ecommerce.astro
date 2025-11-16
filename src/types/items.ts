@@ -6,7 +6,7 @@ type Category =
 	| "desks"
 	| "chairs";
 
-type Item = {
+type Article = {
 	id: number;
 	name: string;
 	desc: string;
@@ -16,4 +16,8 @@ type Item = {
 	img: string;
 };
 
-export type { Item, Category };
+type Filters = {
+	category?: Category;
+};
+
+export type { Article, Category, Filters };

@@ -1,15 +1,8 @@
 ---
-import { getAllItems } from "../api/api";
-import ItemCard from "../components/ItemCard.astro";
+import ArticleSection from "../components/articles-section/ArticleSection";
 import Layout from "../layouts/Layout.astro";
-
-const items = getAllItems();
 ---
 
 <Layout>
-	<section class="flex flex-col w-screen items-center my-8">
-		<section class="grid grid-flow-row auto-cols-fr gap-8">
-			{items.map((item) => <ItemCard item={item} />)}
-		</section>
-	</section>
+	<ArticleSection client:only="preact" />
 </Layout>
