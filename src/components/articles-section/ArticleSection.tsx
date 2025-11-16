@@ -1,7 +1,8 @@
-import { useEffect, useState } from "preact/hooks";
-import type { Article, Filters } from "../../types/items";
+import type { Article, Category, Filters } from "../../types/items";
 import { getAllItems, getItems } from "../../api/api";
 import ArticleItem from "./ArticleItem";
+import { NativeSelect, NativeSelectOption } from "../ui/native-select";
+import { useState, useEffect } from "react";
 
 export default function ArticleSection() {
 	const [filters, setFilters] = useState<Filters>({});
@@ -11,26 +12,39 @@ export default function ArticleSection() {
 		setArticles(() => getItems(filters));
 	}, [filters]);
 
+	const handleChangeFilters = (newFilters: Filters) => {
+		setFilters((prev) => ({ ...prev, newFilters }));
+	};
+
 	return (
-		<main class="flex flex-col w-screen m-8 gap-16">
-			<aside class="flex flex-col items-stretch text-left">
+		<main className="flex flex-col w-screen m-8 gap-16">
+			<aside className="flex flex-col items-stretch text-left">
 				<h1>Filters</h1>
 
-				<select name="categories" id="category-select">
-					<option value="all" selected>
-						All
-					</option>
-					<option value="parts">Parts</option>
-					<option value="accessories">Accessories</option>
-					<option value="cases">Cases</option>
-					<option value="peripherals">Peripherals</option>
-					<option value="desks">Desks</option>
-					<option value="chairs">Chairs</option>
-				</select>
+				<NativeSelect
+					onChange={(e) =>
+						handleChangeFilters({ category: e.currentTarget.value as Category })
+					}
+					value={filters.category}
+				>
+					<NativeSelectOption value="" selected>
+						Select Category
+					</NativeSelectOption>
+					<NativeSelectOption value="parts">Parts</NativeSelectOption>
+					<NativeSelectOption value="accessories">
+						Accessories
+					</NativeSelectOption>
+					<NativeSelectOption value="cases">Cases</NativeSelectOption>
+					<NativeSelectOption value="peripherals">
+						Peripherals
+					</NativeSelectOption>
+					<NativeSelectOption value="desks">Desks</NativeSelectOption>
+					<NativeSelectOption value="chairs">Chairs</NativeSelectOption>
+				</NativeSelect>
 			</aside>
 
 			<div
-				class="grid grid-cols-[repeat(auto-fill,minmax(300px,1fr))] gap-8"
+				className="grid grid-cols-[repeat(auto-fill,minmax(300px,1fr))] gap-8"
 				id="item-container"
 			>
 				{articles.map((article) => (

@@ -9,7 +9,13 @@
   ],
   "compilerOptions": {
     "strict": true,
-    "jsxImportSource": "preact",
+    "baseUrl": ".",
+    "paths": {
+      "@/*": [
+        "./src/*"
+      ]
+    },
+    "jsxImportSource": "react",
     "jsx": "react-jsx"
   }
 }
