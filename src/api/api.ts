@@ -188,7 +188,9 @@ const data: Article[] = [
 ];
 
 function getItems({ category }: Filters): Article[] {
-	return data.filter((item) => !category || item.category == category);
+	if (!category) return getAllItems();
+
+	return data.filter((item) => item.category === category);
 }
 
 function getAllItems(): Article[] {

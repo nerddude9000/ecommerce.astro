@@ -4,5 +4,7 @@ import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout>
-	<ArticleSection client:only="preact" />
+	<ArticleSection client:only="react">
+		<p slot="fallback">Loading...</p>
+	</ArticleSection>
 </Layout>

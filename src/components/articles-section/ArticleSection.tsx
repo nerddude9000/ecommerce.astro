@@ -13,7 +13,7 @@ export default function ArticleSection() {
 	}, [filters]);
 
 	const handleChangeFilters = (newFilters: Filters) => {
-		setFilters((prev) => ({ ...prev, newFilters }));
+		setFilters((prev) => ({ ...prev, ...newFilters }));
 	};
 
 	return (
@@ -27,9 +27,7 @@ export default function ArticleSection() {
 					}
 					value={filters.category}
 				>
-					<NativeSelectOption value="" selected>
-						Select Category
-					</NativeSelectOption>
+					<NativeSelectOption value="">Select Category</NativeSelectOption>
 					<NativeSelectOption value="parts">Parts</NativeSelectOption>
 					<NativeSelectOption value="accessories">
 						Accessories
@@ -48,7 +46,7 @@ export default function ArticleSection() {
 				id="item-container"
 			>
 				{articles.map((article) => (
-					<ArticleItem article={article} />
+					<ArticleItem key={article.id} article={article} />
 				))}
 			</div>
 		</main>

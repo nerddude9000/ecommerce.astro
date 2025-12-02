@@ -16,8 +16,8 @@ type Article = {
 	img: string;
 };
 
-type Filters = {
-	category?: Category;
-};
+type Filters = Partial<{
+	category: Category;
+}>;
 
 export type { Article, Category, Filters };
