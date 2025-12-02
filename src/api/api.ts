@@ -2,7 +2,7 @@
 // * I might make a separate backend for this in the future,
 // * but for now i'll just use this fake data.
 
-import type { Category, Filters, Article } from "../types/items";
+import type { Filters, Article } from "../types/items";
 
 const data: Article[] = [
 	{
@@ -27,7 +27,7 @@ const data: Article[] = [
 		id: 3,
 		name: "Corsair Vengeance 32GB DDR5 RAM",
 		desc: "Dual-channel DDR5 memory kit running at 6000MHz.",
-		price: 189.99,
+		price: 389.99,
 		stock: 25,
 		category: "parts",
 		img: "",
