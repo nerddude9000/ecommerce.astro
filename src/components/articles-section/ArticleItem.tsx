@@ -15,7 +15,7 @@ export default function ArticleItem({ article }: Props) {
 			/>
 
 			<h1 className="text-lg font-black italic">{article.name}</h1>
-			<p className="font-light text-white">{article.price} USD</p>
+			<p className="font-light text-white">{article.price} Ruby</p>
 			{article.stock == 0 && (
 				<p className="text-lg text-red-500">OUT OF STOCK</p>
 			)}
