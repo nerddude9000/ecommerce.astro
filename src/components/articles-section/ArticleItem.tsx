@@ -8,7 +8,8 @@ export default function ArticleItem({ article }: Props) {
 	return (
 		<article className="max-w-64 flex flex-col gap-2 bg-neutral-800 p-2 rounded-2xl">
 			<div className="w-full h-64">
-				<img src={article.img !== "" ? article.img : undefined} alt="" />
+				{/* @Todo: Add actual images or something */}
+				<img src={`https://picsum.photos/300?random=${article.id}`} alt="" />
 			</div>
 
 			<h1 className="text-lg font-black italic">{article.name}</h1>
