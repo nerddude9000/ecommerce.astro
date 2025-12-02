@@ -42,7 +42,7 @@ export default function ArticleSection() {
 			</aside>
 
 			<div
-				className="grid grid-cols-[repeat(auto-fill,minmax(300px,1fr))] gap-8"
+				className="grid grid-cols-[repeat(auto-fill,minmax(300px,1fr))] lg:grid-cols-[repeat(auto-fill,minmax(500px,1fr))] gap-8"
 				id="item-container"
 			>
 				{articles.map((article) => (

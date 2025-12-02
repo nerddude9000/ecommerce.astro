@@ -6,14 +6,16 @@ interface Props {
 
 export default function ArticleItem({ article }: Props) {
 	return (
-		<article className="max-w-64 flex flex-col gap-2 bg-neutral-800 p-2 rounded-2xl cursor-pointer">
-			<div className="w-full h-64">
-				{/* @Todo: Add actual images or something */}
-				<img src={`https://picsum.photos/300?random=${article.id}`} alt="" />
-			</div>
+		<article className="flex flex-col gap-2 bg-neutral-800 p-2 rounded-2xl cursor-pointer">
+			{/* @Todo: Add actual images or something */}
+			<img
+				src={`https://picsum.photos/300?random=${article.id}`}
+				alt=""
+				className="w-full h-64 lg:h-[500px] rounded-t-xl"
+			/>
 
 			<h1 className="text-lg font-black italic">{article.name}</h1>
-			<p className="font-light text-white">{article.price} DZD</p>
+			<p className="font-light text-white">{article.price} USD</p>
 			{article.stock == 0 && (
 				<p className="text-lg text-red-500">OUT OF STOCK</p>
 			)}
