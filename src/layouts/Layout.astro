@@ -1,12 +1,14 @@
 ---
-import Footer from "@/components/Footer.astro";
 import "../assets/global.css";
+import Footer from "@/components/Footer.astro";
 import Header from "../components/Header.astro";
+import { Font } from "astro:assets";
 ---
 
 <!doctype html>
 <html lang="en" class="scroll-smooth">
 	<head>
+		<Font cssVariable="--font-poppins" preload />
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
