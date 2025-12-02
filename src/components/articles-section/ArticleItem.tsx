@@ -6,7 +6,7 @@ interface Props {
 
 export default function ArticleItem({ article }: Props) {
 	return (
-		<article className="max-w-64 flex flex-col gap-2 bg-neutral-800 p-2 rounded-2xl">
+		<article className="max-w-64 flex flex-col gap-2 bg-neutral-800 p-2 rounded-2xl cursor-pointer">
 			<div className="w-full h-64">
 				{/* @Todo: Add actual images or something */}
 				<img src={`https://picsum.photos/300?random=${article.id}`} alt="" />
