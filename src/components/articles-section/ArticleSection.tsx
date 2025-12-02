@@ -17,7 +17,7 @@ export default function ArticleSection() {
 	};
 
 	return (
-		<main className="flex flex-col w-full p-8 gap-16">
+		<>
 			<aside className="flex flex-col items-start">
 				<h1>Filters</h1>
 
@@ -49,6 +49,6 @@ export default function ArticleSection() {
 					<ArticleItem key={article.id} article={article} />
 				))}
 			</div>
-		</main>
+		</>
 	);
 }
