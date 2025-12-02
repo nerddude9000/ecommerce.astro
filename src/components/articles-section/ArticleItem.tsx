@@ -9,7 +9,7 @@ export default function ArticleItem({ article }: Props) {
 		<article className="flex flex-col gap-2 bg-neutral-800 p-2 rounded-2xl cursor-pointer">
 			{/* @Todo: Add actual images or something */}
 			<img
-				src={`https://picsum.photos/300?random=${article.id}`}
+				src={`https://placehold.co/600/webp?font=poppins&text=${article.name}`}
 				alt=""
 				className="w-full h-64 lg:h-[500px] rounded-t-xl"
 			/>
