@@ -1,15 +1,15 @@
 import type { Article, Category, Filters } from "../../types/items";
-import { getAllItems, getItems } from "../../api/api";
+import { getAllProducts, getFilteredProducts } from "../../api/api";
 import ArticleItem from "./ArticleItem";
 import { NativeSelect, NativeSelectOption } from "../ui/native-select";
 import { useState, useEffect } from "react";
 
 export default function ArticleSection() {
 	const [filters, setFilters] = useState<Filters>({});
-	const [articles, setArticles] = useState<Article[]>(getAllItems);
+	const [articles, setArticles] = useState<Article[]>(getAllProducts);
 
 	useEffect(() => {
-		setArticles(() => getItems(filters));
+		setArticles(() => getFilteredProducts(filters));
 	}, [filters]);
 
 	const handleChangeFilters = (newFilters: Filters) => {

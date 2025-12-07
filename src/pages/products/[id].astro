@@ -1,0 +1,17 @@
+---
+import { getAllProductIds } from "@/api/api";
+import type { GetStaticPaths } from "astro";
+
+export const getStaticPaths = (() => {
+	const allProductIds = getAllProductIds();
+	const staticPaths = allProductIds.map((productId) => ({
+		params: { id: productId.id },
+	}));
+
+	return staticPaths;
+}) satisfies GetStaticPaths;
+
+const { id } = Astro.params;
+---
+
+<h1>Product no{id}</h1>

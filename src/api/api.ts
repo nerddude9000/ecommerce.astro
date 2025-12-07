@@ -187,14 +187,18 @@ const data: Article[] = [
 	},
 ];
 
-function getItems({ category }: Filters): Article[] {
-	if (!category) return getAllItems();
+function getFilteredProducts({ category }: Filters): Article[] {
+	if (!category) return getAllProducts();
 
 	return data.filter((item) => item.category === category);
 }
 
-function getAllItems(): Article[] {
+function getAllProducts(): Article[] {
 	return data;
 }
 
-export { getItems, getAllItems };
+function getAllProductIds(): { id: number }[] {
+	return getAllProducts().map((product) => ({ id: product.id }));
+}
+
+export { getFilteredProducts, getAllProducts, getAllProductIds };
