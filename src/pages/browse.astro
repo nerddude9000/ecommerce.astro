@@ -6,7 +6,7 @@ import Layout from "../layouts/Layout.astro";
 <Layout>
 	<main class="flex flex-col p-8 gap-16">
 		<!-- @Todo: Add fancy fade-in animation -->
-		<ArticleSection client:only="react">
+		<ArticleSection client:load>
 			<!-- @Todo: Add fancy loading loop circle -->
 			<p slot="fallback" class="cursor-progress">Loading...</p>
 		</ArticleSection>

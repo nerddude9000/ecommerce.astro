@@ -5,8 +5,15 @@ interface Props {
 }
 
 export default function ArticleItem({ article }: Props) {
+	const handleArticleClick = () => {
+		window.location.href = `/products/${article.id}`;
+	};
+
 	return (
-		<article className="flex flex-col gap-2 bg-neutral-800 p-2 rounded-2xl cursor-pointer">
+		<article
+			className="flex flex-col gap-2 bg-neutral-800 p-2 rounded-2xl cursor-pointer"
+			onClick={handleArticleClick}
+		>
 			{/* @Todo: Add actual images or something */}
 			<img
 				src={`https://placehold.co/600/webp?font=poppins&text=${article.name}`}
