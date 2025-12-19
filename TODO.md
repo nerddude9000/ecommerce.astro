@@ -2,7 +2,8 @@
 
 ## Cart
 
-- ui
+- header button that toggles cart container
+- empty cart container (uses react)
 - global state
 - crud
 

@@ -1,10 +1,12 @@
 ---
-import NavButton from "./NavButton.astro";
+import CartButton from "./header/CartButton.astro";
+import NavButton from "./header/NavButton.astro";
 ---
 
-<header class="h-8 w-screen flex items-center justify-center bg-neutral-950">
-	<nav class="w-5/6 max-w-lg flex items-center justify-between">
+<header class="h-8 w-screen flex justify-center bg-neutral-950">
+	<nav class="w-5/6 max-w-lg flex items-center justify-around">
 		<NavButton text="Home" link="/" />
 		<NavButton text="Browse" link="/browse" />
+		<CartButton />
 	</nav>
 </header>
