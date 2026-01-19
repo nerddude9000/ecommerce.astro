@@ -15,6 +15,12 @@ import CartWindow from "../cart/CartWindow.astro";
 
 		btn.addEventListener("click", (e) => {
 			e.stopPropagation();
+
+			if (window.innerWidth <= 760){
+				window.location.href="cart";
+				return;
+			}
+
 			showCart = !showCart;
 			cart.hidden = !showCart;
 		});

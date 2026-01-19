@@ -2,10 +2,13 @@
 
 ## Cart
 
-- header button that toggles cart container
-- empty cart container (uses react)
+- styling
 - global state
 - crud
+
+## Cart page
+
+- page
 
 ## Product pages
 
