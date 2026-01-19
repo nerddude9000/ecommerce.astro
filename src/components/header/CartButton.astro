@@ -1,7 +1,22 @@
 ---
 import { ShoppingCart } from "lucide-react";
+import CartWindow from "../cart/CartWindow.astro";
 ---
 
-<button id="cart-button" class="justify-self-end">
-	<ShoppingCart />
-</button>
+<div class="relative">
+	<button id="cart-button" class="justify-self-end">
+		<ShoppingCart />
+	</button>
+	<CartWindow />
+	<script>
+		const btn = document.getElementById("cart-button") as HTMLButtonElement;
+		const cart = document.getElementById("cart")!;
+		let showCart = false;
+
+		btn.addEventListener("click", (e) => {
+			e.stopPropagation();
+			showCart = !showCart;
+			cart.hidden = !showCart;
+		});
+	</script>
+</div>
