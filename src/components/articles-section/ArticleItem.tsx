@@ -1,3 +1,4 @@
+import { articleToUrl } from "@/lib/utils";
 import type { Article } from "../../types/items";
 
 interface Props {
@@ -6,7 +7,7 @@ interface Props {
 
 export default function ArticleItem({ article }: Props) {
 	const handleArticleClick = () => {
-		window.location.href = `/products/${article.id}`;
+		window.location.href = articleToUrl(article);
 	};
 
 	return (

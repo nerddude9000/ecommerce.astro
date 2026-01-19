@@ -16,8 +16,15 @@ type Article = {
 	img: string;
 };
 
+type CartArticle = {
+	id: number;
+	name: string;
+	price: number;
+	amount: number;
+};
+
 type Filters = Partial<{
 	category: Category;
 }>;
 
-export type { Article, Category, Filters };
+export type { Category, Article, CartArticle, Filters };

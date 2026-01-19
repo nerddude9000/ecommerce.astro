@@ -2,17 +2,17 @@
 
 ## Cart
 
-- styling
 - global state
-- crud
+- adding to cart from browse menu
+- adding to cart from product menu
+- deleting from cart
+- changing item number (delete if 0)
 
 ## Cart page
 
-- page
+- same as small window but bigger with images and more info
 
 ## Product pages
-
-- add to cart (after cart system)
 
 ## Browse page
 
@@ -23,3 +23,8 @@
 
 - big auto-swiping banner that shows the newest additions
 - filler
+
+## Misc
+
+- Uniform file names
+- Uniform coding style
