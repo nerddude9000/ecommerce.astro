@@ -1,4 +1,4 @@
-import { articleToUrl } from "@/lib/utils";
+import { articleToUrl, loadCart } from "@/lib/utils";
 import type { CartArticle } from "@/types/items"
 import { ChevronDown, ChevronUp } from "lucide-react";
 
@@ -19,29 +19,11 @@ function CartWindowItem({ item }: { item: CartArticle }) {
 }
 
 export default function CartWindowContent() {
-	// TODO: TEMP
-	const cartContent: CartArticle[] = [
-		{
-			id: 1,
-			name: "RTX 4080 Super GPU",
-			price: 1299.99,
-			amount: 1,
-		},
-		{
-			id: 2,
-			name: "Ryzen 9 7950X Processor",
-			price: 699.99,
-			amount: 1,
-		},
-		{
-			id: 3,
-			name: "Corsair Vengeance 32GB DDR5 RAM",
-			price: 389.99,
-			amount: 2,
-		},
-	];
+	const cartContent: CartArticle[] = loadCart();
 
 	return <div className="flex flex-col gap-8">
-		{cartContent.map((item) => <CartWindowItem key={`cart_${item.name}`} item={item} />)}
+		{cartContent.length > 0
+			? cartContent.map((item) => <CartWindowItem key={`cart_${item.name}`} item={item} />)
+			: <p>No items in cart.</p>}
 	</div>
 }
