@@ -1,6 +1,7 @@
-// * This is a mock api with no actual backend nor database
-// * I might make a separate backend for this in the future,
-// * but for now i'll just use this fake data.
+/* This is a mock api with no actual backend nor database
+ * I might make a separate backend for this in the future,
+ * but for now i'll just use this fake data.
+ */
 
 import type { Filters, Article } from "../types/items";
 

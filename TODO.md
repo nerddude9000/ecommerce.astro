@@ -2,7 +2,7 @@
 
 ## Cart
 
-- global state
+- global state using zustand
 - adding to cart from browse menu
 - adding to cart from product menu
 - deleting from cart
