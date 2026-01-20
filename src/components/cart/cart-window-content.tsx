@@ -1,6 +1,8 @@
-import { articleToUrl, loadCart } from "@/lib/utils";
+import { loadCart } from "@/lib/cart";
+import { articleToUrl } from "@/lib/utils";
 import type { CartArticle } from "@/types/items"
 import { ChevronDown, ChevronUp } from "lucide-react";
+import { useEffect, useState } from "react";
 
 function CartWindowItem({ item }: { item: CartArticle }) {
 	const handleClick = () => {
@@ -19,7 +21,11 @@ function CartWindowItem({ item }: { item: CartArticle }) {
 }
 
 export default function CartWindowContent() {
-	const cartContent: CartArticle[] = loadCart();
+	const [cartContent, setCartContent] = useState<CartArticle[]>([]);
+
+	useEffect(() => {
+		setCartContent(loadCart());
+	}, []);
 
 	return <div className="flex flex-col gap-8">
 		{cartContent.length > 0
