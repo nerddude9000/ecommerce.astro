@@ -7,6 +7,7 @@
 - adding to cart from product menu
 - deleting from cart
 - changing item number (delete if 0)
+- clicking outside of cart window closes it
 
 ## Cart page
 
