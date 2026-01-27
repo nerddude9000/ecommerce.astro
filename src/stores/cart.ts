@@ -1,7 +1,7 @@
 import type { CartArticle } from "@/types/items";
 import { create } from "zustand";
 
-const CART_LOCALSTORAGE_KEY = "cart";
+export const CART_LOCALSTORAGE_KEY = "cart";
 
 type CartStore = {
 	cart: CartArticle[];
@@ -10,12 +10,7 @@ type CartStore = {
 }
 
 export const useCart = create<CartStore>((set) => ({
-	cart: (() => {
-		const localStorageCart = localStorage.getItem(CART_LOCALSTORAGE_KEY);
-		if (!localStorageCart) return [];
-
-		return JSON.parse(localStorageCart);
-	})(),
+	cart: [],
 	updateCart: (newCart) => {
 		localStorage.setItem(CART_LOCALSTORAGE_KEY, JSON.stringify(newCart));
 		set({ cart: newCart });

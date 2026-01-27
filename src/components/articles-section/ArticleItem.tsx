@@ -1,13 +1,16 @@
 import { articleToUrl } from "@/lib/utils";
 import type { Article, CartArticle } from "../../types/items";
 import { ShoppingCartIcon } from "lucide-react";
-import { loadCart, saveCart } from "@/lib/cart";
+import { useCart } from "@/stores/cart";
 
 interface Props {
 	article: Article;
 }
 
 export default function ArticleItem({ article }: Props) {
+	const cart = useCart(s => s.cart);
+	const updateCart = useCart(s => s.updateCart);
+
 	const handleArticleClick = () => {
 		window.location.href = articleToUrl(article);
 	};
@@ -16,8 +19,7 @@ export default function ArticleItem({ article }: Props) {
 		e.stopPropagation();
 		e.preventDefault();
 
-		const currentCart = loadCart();
-		const idxInCart = currentCart.findIndex((cart) => cart.id === article.id);
+		const idxInCart = cart.findIndex((c) => c.id === article.id);
 
 		if (idxInCart === -1) {
 			const newCartArticle: CartArticle = {
@@ -27,10 +29,10 @@ export default function ArticleItem({ article }: Props) {
 				price: article.price
 			};
 
-			saveCart([...currentCart, newCartArticle]);
+			updateCart([...cart, newCartArticle]);
 		} else {
-			currentCart[idxInCart].amount++;
-			saveCart(currentCart);
+			// NOTE: optimize this somehow, because it's an array and we have the index!
+			updateCart(cart.map((c) => c.id === idxInCart ? { ...c, amount: c.amount + 1 } : c));
 		}
 	}
 

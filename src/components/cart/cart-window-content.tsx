@@ -1,8 +1,8 @@
-import { loadCart } from "@/lib/cart";
 import { articleToUrl } from "@/lib/utils";
+import { CART_LOCALSTORAGE_KEY, useCart } from "@/stores/cart";
 import type { CartArticle } from "@/types/items"
 import { ChevronDown, ChevronUp } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 
 function CartWindowItem({ item }: { item: CartArticle }) {
 	const handleClick = () => {
@@ -21,15 +21,19 @@ function CartWindowItem({ item }: { item: CartArticle }) {
 }
 
 export default function CartWindowContent() {
-	const [cartContent, setCartContent] = useState<CartArticle[]>([]);
+	const cart = useCart(s => s.cart);
+	const updateCart = useCart(s => s.updateCart);
 
 	useEffect(() => {
-		setCartContent(loadCart());
+		const localStorageCart = localStorage.getItem(CART_LOCALSTORAGE_KEY);
+
+		if (localStorageCart)
+			updateCart(JSON.parse(localStorageCart));
 	}, []);
 
 	return <div className="flex flex-col gap-8">
-		{cartContent.length > 0
-			? cartContent.map((item) => <CartWindowItem key={`cart_${item.name}`} item={item} />)
+		{cart.length > 0
+			? cart.map((item) => <CartWindowItem key={`cart_${item.name}`} item={item} />)
 			: <p>No items in cart.</p>}
 	</div>
 }
