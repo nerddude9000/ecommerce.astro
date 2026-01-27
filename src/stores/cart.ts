@@ -10,7 +10,12 @@ type CartStore = {
 }
 
 export const useCart = create<CartStore>((set) => ({
-	cart: [],
+	cart: (() => {
+		const localStorageCart = localStorage.getItem(CART_LOCALSTORAGE_KEY);
+		if (!localStorageCart) return [];
+
+		return JSON.parse(localStorageCart);
+	})(),
 	updateCart: (newCart) => {
 		localStorage.setItem(CART_LOCALSTORAGE_KEY, JSON.stringify(newCart));
 		set({ cart: newCart });
