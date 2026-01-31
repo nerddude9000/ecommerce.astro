@@ -8,8 +8,7 @@ interface Props {
 }
 
 export default function ArticleItem({ article }: Props) {
-	const cart = useCart(s => s.cart);
-	const updateCart = useCart(s => s.updateCart);
+	const addToCart = useCart(s => s.addToCart);
 
 	const handleArticleClick = () => {
 		window.location.href = articleToUrl(article);
@@ -19,21 +18,13 @@ export default function ArticleItem({ article }: Props) {
 		e.stopPropagation();
 		e.preventDefault();
 
-		const idxInCart = cart.findIndex((c) => c.id === article.id);
-
-		if (idxInCart === -1) {
-			const newCartArticle: CartArticle = {
-				id: article.id,
-				name: article.name,
-				amount: 1,
-				price: article.price
-			};
-
-			updateCart([...cart, newCartArticle]);
-		} else {
-			// NOTE: optimize this somehow, because it's an array and we have the index!
-			updateCart(cart.map((c) => c.id === idxInCart ? { ...c, amount: c.amount + 1 } : c));
-		}
+		const cartArticle: CartArticle = {
+			id: article.id,
+			name: article.name,
+			amount: 1,
+			price: article.price
+		};
+		addToCart(cartArticle);
 	}
 
 	return (

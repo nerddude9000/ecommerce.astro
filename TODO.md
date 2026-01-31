@@ -2,11 +2,7 @@
 
 ## Cart
 
-- global state using zustand
-- adding to cart from browse menu
-- adding to cart from product menu
-- deleting from cart
-- changing item number (delete if 0)
+- clearing cart (with confirmation)
 - clicking outside of cart window closes it
 
 ## Cart page
@@ -14,6 +10,8 @@
 - same as small window but bigger with images and more info
 
 ## Product pages
+
+- adding to cart btn
 
 ## Browse page
 
