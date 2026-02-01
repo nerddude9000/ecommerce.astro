@@ -34,14 +34,27 @@ function CartWindowItem({ item }: { item: CartArticle }) {
 export default function CartWindowContent() {
 	const cart = useCart(s => s.cart);
 	const loadCart = useCart(s => s.loadCart);
+	const clearCart = useCart(s => s.clearCart);
 
 	useEffect(() => {
 		loadCart();
 	}, []);
 
+	const handleClearCartClick = () => {
+		const response = confirm("Do you really want to clear your cart?");
+
+		if (response)
+			clearCart();
+	}
+
+	if (cart.length <= 0)
+		return <p>No items in cart.</p>;
+
 	return <div className="flex flex-col gap-8">
-		{cart.length > 0
-			? cart.map((item) => <CartWindowItem key={`cart_${item.name}`} item={item} />)
-			: <p>No items in cart.</p>}
+		<div className="flex">
+			<h2 className="flex-1">Your cart</h2>
+			<button className="underline" onClick={handleClearCartClick}>CLEAR</button>
+		</div>
+		{cart.map((item) => <CartWindowItem key={`cart_${item.name}`} item={item} />)}
 	</div>
 }

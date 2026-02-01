@@ -2,7 +2,6 @@
 
 ## Cart
 
-- clearing cart (with confirmation)
 - clicking outside of cart window closes it
 
 ## Cart page
@@ -27,3 +26,7 @@
 
 - Uniform file names
 - Uniform coding style
+
+# Bugs
+
+- Adding to cart before opening it resets it (need to init it as null, then load it on each action if it's null).
