@@ -1,5 +1,7 @@
 ---
-import { getAllProductIds } from "@/api/api";
+import { getAllProductIds, getProduct } from "@/api/api";
+import AddToCartButton from "@/components/cart/add-to-cart-btn";
+import Layout from "@/layouts/Layout.astro";
 import type { GetStaticPaths } from "astro";
 
 export const getStaticPaths = (() => {
@@ -12,6 +14,43 @@ export const getStaticPaths = (() => {
 }) satisfies GetStaticPaths;
 
 const { id } = Astro.params;
+const product = getProduct(id);
 ---
 
-<h1>Product no{id}</h1>
+<Layout>
+	<main class="flex flex-col my-16 gap-8">
+		{
+			product ? (
+				<>
+					<h1 class="text-xl lg:text-4xl font-bold text-center">
+						{product.name}
+					</h1>
+
+					{/* @Todo: Add actual images or something */}
+					<img
+						src={`https://placehold.co/600/webp?font=poppins&text=${product.name}`}
+						alt={`product image of ${product.name}`}
+						class="self-center max-h-[600px]"
+					/>
+
+					<div class="mx-4 flex flex-col gap-2 lg:text-xl">
+						<p>
+							<span class="font-semibold">Category: </span>
+							{product.category.toUpperCase()}
+						</p>
+						<p>
+							<span class="font-semibold">Description: </span>
+							{product.desc}
+						</p>
+						<p class="text-4xl lg:text-6xl my-4 text-green-200">
+							{product.price} Ruby
+						</p>
+						<AddToCartButton article={product} client:visible />
+					</div>
+				</>
+			) : (
+				<h1>An unknown error occured.</h1>
+			)
+		}
+	</main>
+</Layout>

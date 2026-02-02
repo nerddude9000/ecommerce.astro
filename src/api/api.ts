@@ -189,9 +189,9 @@ const data: Article[] = [
 ];
 
 function getFilteredProducts({ category }: Filters): Article[] {
-	if (!category) return getAllProducts();
+	if (!category) return data;
 
-	return data.filter((item) => item.category === category);
+	return data.filter((article) => article.category === category);
 }
 
 function getAllProducts(): Article[] {
@@ -199,7 +199,11 @@ function getAllProducts(): Article[] {
 }
 
 function getAllProductIds(): { id: number }[] {
-	return getAllProducts().map((product) => ({ id: product.id }));
+	return data.map((article) => ({ id: article.id }));
 }
 
-export { getFilteredProducts, getAllProducts, getAllProductIds };
+function getProduct(id: number): Article | undefined {
+	return data.find((article) => article.id == id);
+}
+
+export { getFilteredProducts, getAllProducts, getAllProductIds, getProduct };

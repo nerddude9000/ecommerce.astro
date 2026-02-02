@@ -1,16 +1,13 @@
 # Todo
 
-## Cart
+## Product page
 
-- clicking outside of cart window closes it
+- after cart page: add button to purchase immediatly.
+- rating
 
 ## Cart page
 
 - same as small window but bigger with images and more info
-
-## Product pages
-
-- adding to cart btn
 
 ## Browse page
 
@@ -22,10 +19,16 @@
 - big auto-swiping banner that shows the newest additions
 - filler
 
+## Checkout page
+
 ## Misc
 
 - Uniform file names
 - Uniform coding style
+- clicking outside of cart window closes it
+- maybe breadcrumbs or whatever they're called (home > products > product)
+- sidebar on mobile
+- cart item count next to the header icon
 
 # Bugs
 

@@ -1,32 +1,15 @@
 import { articleToUrl } from "@/lib/utils";
-import type { Article, CartArticle } from "../../types/items";
-import { ShoppingCartIcon } from "lucide-react";
-import { useCart } from "@/stores/cart";
-import type { EventHandler } from "react";
+import type { Article } from "../../types/items";
+import AddToCartButton from "../cart/add-to-cart-btn";
 
 interface Props {
 	article: Article;
 }
 
 export default function ArticleItem({ article }: Props) {
-	const addToCart = useCart(s => s.addToCart);
-
 	const handleArticleClick = () => {
 		window.location.href = articleToUrl(article);
 	};
-
-	const handleAddToCart = (e: any) => {
-		e.stopPropagation();
-		e.preventDefault();
-
-		const cartArticle: CartArticle = {
-			id: article.id,
-			name: article.name,
-			amount: 1,
-			price: article.price
-		};
-		addToCart(cartArticle);
-	}
 
 	return (
 		<article
@@ -35,7 +18,7 @@ export default function ArticleItem({ article }: Props) {
 			{/* @Todo: Add actual images or something */}
 			<img
 				src={`https://placehold.co/600/webp?font=poppins&text=${article.name}`}
-				alt=""
+				alt={`product image of ${article.name}`}
 				className="w-full h-64 lg:h-[500px] rounded-t-xl cursor-pointer"
 				onClick={handleArticleClick}
 			/>
@@ -53,7 +36,7 @@ export default function ArticleItem({ article }: Props) {
 				</div>
 
 				{article.stock > 0 &&
-					<button onClick={handleAddToCart} className="m-2"><ShoppingCartIcon size={36} /></button>}
+					<AddToCartButton article={article} isIconOnly className="m-2" />}
 			</div>
 		</article>
 	);
