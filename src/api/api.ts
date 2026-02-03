@@ -187,16 +187,26 @@ const data: Article[] = [
 		img: "",
 	},
 ];
-
-function getFilteredProducts({ category }: Filters): Article[] {
-	if (!category) return data;
-
-	return data.filter((article) => article.category === category);
-}
+const NUMBER_OF_PRODUCTS_PER_PAGE = 10;
 
 function getAllProducts(): Article[] {
 	return data;
 }
+
+function _filterProducts(arr: Article[], { category }: Filters) {
+	return arr.filter((article) =>
+		(!category || article.category === category)
+	);
+}
+
+function getFilteredProducts(
+	filters: Filters, page: number, limit: number = NUMBER_OF_PRODUCTS_PER_PAGE
+): Article[] {
+	const paginatedData = data.slice(limit * (page - 1), limit * page);
+
+	return _filterProducts(paginatedData, filters);
+}
+
 
 function getAllProductIds(): { id: number }[] {
 	return data.map((article) => ({ id: article.id }));
@@ -206,4 +216,10 @@ function getProduct(id: number): Article | undefined {
 	return data.find((article) => article.id == id);
 }
 
-export { getFilteredProducts, getAllProducts, getAllProductIds, getProduct };
+function getMaxPages(filters: Filters) {
+	const filteredData = _filterProducts(data, filters);
+
+	return Math.ceil(filteredData.length / NUMBER_OF_PRODUCTS_PER_PAGE);
+}
+
+export { getFilteredProducts, getAllProducts, getAllProductIds, getProduct, getMaxPages };

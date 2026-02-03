@@ -1,20 +1,39 @@
 import type { Article, Category, Filters } from "../../types/items";
-import { getAllProducts, getFilteredProducts } from "../../api/api";
+import { getFilteredProducts, getMaxPages } from "../../api/api";
 import ArticleItem from "./ArticleItem";
 import { NativeSelect, NativeSelectOption } from "../ui/native-select";
 import { useState, useEffect } from "react";
+import { Pagination, PaginationContent, PaginationItem, PaginationLink } from "../ui/pagination";
+import { SimplePagination, type PaginationState } from "../pagination";
 
 export default function ArticleSection() {
 	const [filters, setFilters] = useState<Filters>({});
-	const [articles, setArticles] = useState<Article[]>(getAllProducts);
+	const [articles, setArticles] = useState<Article[]>([]);
+	const [pagination, setPagination] = useState<PaginationState>({
+		pages: getMaxPages(filters),
+		currentPage: 1
+	});
 
 	useEffect(() => {
-		setArticles(() => getFilteredProducts(filters));
-	}, [filters]);
+		setArticles(getFilteredProducts(filters, pagination.currentPage));
+	}, [filters, pagination]);
+
+	useEffect(() => {
+		const maxPages = getMaxPages(filters);
+
+		setPagination({
+			pages: maxPages,
+			currentPage: 1
+		});
+	}, [filters])
 
 	const handleChangeFilters = (newFilters: Filters) => {
 		setFilters((prev) => ({ ...prev, ...newFilters }));
 	};
+
+	const handleChangePage = (targetPage: number) => {
+		setPagination(prev => ({ ...prev, currentPage: targetPage }));
+	}
 
 	return (
 		<>
@@ -41,14 +60,21 @@ export default function ArticleSection() {
 				</NativeSelect>
 			</aside>
 
+			<SimplePagination state={pagination} updatePage={handleChangePage} />
+
 			<div
 				className="grid grid-cols-[repeat(auto-fill,minmax(300px,1fr))] lg:grid-cols-[repeat(auto-fill,minmax(500px,1fr))] gap-8"
 				id="item-container"
 			>
-				{articles.map((article) => (
-					<ArticleItem key={article.id} article={article} />
-				))}
+				{articles.length > 0
+					? articles.map((article) => (
+						<ArticleItem key={article.id} article={article} />
+					))
+					: <p className="text-lg italic">No products match the selected filters ): .</p>
+				}
 			</div>
+
+			<SimplePagination state={pagination} updatePage={handleChangePage} />
 		</>
 	);
 }

@@ -2,7 +2,7 @@
 
 ## Product page
 
-- after cart page: add button to purchase immediatly.
+- after cart page: add button to purchase immedietely (adds to cart and goes to cart page).
 - rating
 
 ## Cart page
@@ -12,6 +12,7 @@
 ## Browse page
 
 - pagination
+- more filters
 - optimization (only fetch images when shown on screen)
 
 ## Homepage
