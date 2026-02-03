@@ -11,7 +11,6 @@
 
 ## Browse page
 
-- pagination
 - more filters
 - optimization (only fetch images when shown on screen)
 
